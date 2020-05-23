@@ -2004,6 +2004,9 @@ nav {
   background-color: $c-white;
   font-family: $f-headlineFont;
   text-transform: uppercase;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
   .logo img {
     width: 100%;
     max-width: 200px;
@@ -2053,7 +2056,7 @@ nav {
   body {
     overflow-x: hidden;
     .nav-links {
-      position: absolute;
+      position: fixed;
       padding: 15% 0 30%;
       right: 0px;
       height: 92vh;
@@ -2127,6 +2130,89 @@ nav {
     -webkit-transform: rotate(45deg) translate(-5px, -6px);
     transform: rotate(45deg) translate(-5px, -6px);
   }
+}
+
+nav {
+	.mobile-nav-bar{
+		.top-nav-bar {
+            padding: 1em 0;
+            position: relative;
+			.wrapper {
+        @include center(90%, $mq-mediumLarge);
+				@include flexbox;
+				@include justify-content(space-between);
+				@include align-items(center);
+				.logo img {
+                    transition: all .5s;
+                    width: 100%;
+                    max-width: 14em;
+					&:hover,
+					&:focus {
+						opacity: .4;
+					}
+				}
+				#menu {
+					&:hover {
+						opacity: .4;
+					}
+					&::after {
+						content: "\f0c9";
+						font-family: 'FontAwesome';
+						display: inline-block;
+						width: 100%;
+						font-size: 1.5em;
+						color: $c-theme1;
+					}
+				}
+			}
+		}
+		#bottom-nav-bar {
+      display: none;
+      z-index: 2;
+      padding: 2em 0 1em;
+      background-color: $c-white;
+      position: absolute;
+      width: 100%;
+      opacity: 0.95;
+			.nav-bar-items li {
+				margin-bottom: 1em;
+			}
+		}
+		@media (min-width: $mq-mediumSmall) {
+			display: none;
+		}
+	}
+	.desktop-nav-bar {
+		padding: 1.5em 0;
+		background-color: $c-white;
+		.wrapper {
+            @include center(90%, 90%);
+            @include flexbox;
+            @include justify-content(space-between);
+            .logo img {
+                transition: all .5s;
+                width: 100%;
+                max-width: 17em;
+                &:hover,
+                &:focus {
+                    opacity: .4;
+                }
+            }
+            .nav-bar-items {
+                @include flexbox;
+                @include flex-direction(row);
+                @include justify-content(space-around);
+                @include align-items(center);
+                li {
+                    margin-left: 1em;
+                }
+            }
+        }
+        // One pixel under $mq-mediumSmall(768px) so there is overlap of hide/show on tablet
+		@media (max-width: 767px) {
+			display: none;
+		}
+	}
 }
 
 footer {
@@ -2524,5 +2610,94 @@ footer {
       }
       margin-bottom: 5%;
 		}
+  }
+}
+
+/* ================================= 
+  Portfolio-interior
+==================================== */
+#portfolio-interior {
+  .hero {
+    background: $c-theme1 no-repeat top center / cover;
+    height: 25vh;
+  }
+  .case-study {
+    padding: 5% 0;
+    @include center(90%, $mq-large);
+    .description {
+      margin: 0 0 5% 0;
+    }
+    .portfolio-images {
+      .thumbnail {
+        width: 100%;
+        height: 400px;
+        background: $c-theme1 no-repeat top center / cover;
+        margin: 0 0 1em 0;
+      }
+    }
+    @media (min-width: $mq-medium) {
+      @include flexbox;
+      .description {
+        width: 45%;
+        margin: 0 5% 0 0;
+        text-align: left;
+      }
+      .portfolio-images {
+        width: 50%;
+      }
+    }
+  }
+  .links {
+    background-color: $c-white;
+    .wrapper {
+      padding: 5% 0 8%;
+      @include center(90%, $mq-medium);
+      p {
+        margin-bottom: 3em;
+      }
+      .live-btn {
+        @extend %major-button;
+      }
+      .repo-btn {
+        @extend %minor-button;
+      }
+      .portfolio-links a {
+        margin-bottom: .5em;
+      }
+    }
+  }
+  .roles-tools {
+    background-color: $c-theme1;
+    .wrapper {
+      padding: 5% 0;
+      @include center(90%, $mq-medium);
+      h3, p {
+        color: $c-white;
+        text-align: left;
+      }
+      .roles {
+        border-bottom: thin solid $c-white;
+        margin: 0 0 5% 0;
+        padding: 0 0 5% 0;
+      }
+      @media (min-width: $mq-small) {
+        @include flexbox;
+        .roles {
+          border-bottom: none;
+          border-right: thin solid $c-white;
+          margin: 0 5% 0 0;
+          padding: 0 5% 0 0;
+        }
+      }
+    }
+  }
+  .all-work {
+    padding: 10% 0;
+    @include flexbox;
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+    .view-btn {
+      @extend %minor-button2;
+    }
   }
 }

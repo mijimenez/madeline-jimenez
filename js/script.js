@@ -6,7 +6,7 @@ const navSlide = () => {
 
   navLinks.forEach((link, index) => {
     link.addEventListener('click', (e) => {
-      e.preventDefault();
+      // e.preventDefault();
       burger.classList.toggle('toggle');
       nav.classList.toggle('nav-active');
       navLinks.forEach(setStyleLink)
@@ -33,6 +33,17 @@ function setStyleLink(el, index) {
 navSlide();
 
 
+// Static collapsable nav bar
+function menuCollapse() {
+  var x = document.getElementById("bottom-nav-bar");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+
 // Scroll to Anchor
 // @ https://perishablepress.com/vanilla-javascript-scroll-anchor/
 (function() {
@@ -47,8 +58,9 @@ function scrollTo() {
 function scrollAnchors(e, respond = null) {
 	const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
 	e.preventDefault();
-	var targetID = (respond) ? respond.getAttribute('href') : this.getAttribute('href');
-	const targetAnchor = document.querySelector(targetID);
+  var targetID = (respond) ? respond.getAttribute('href') : this.getAttribute('href');
+  // console.log("Target ID: " + targetID);
+  const targetAnchor = document.querySelector(targetID);
 	if (!targetAnchor) return;
 	const originalTop = distanceToTop(targetAnchor);
 	window.scrollBy({ top: originalTop, left: 0, behavior: 'smooth' });
