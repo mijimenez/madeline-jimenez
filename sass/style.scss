@@ -2292,14 +2292,15 @@ footer {
       display: block;
       position: absolute;
       left: -12em;
-      top: 2em;
+      top: 22px;
       width: 383px;
       height: 51%;
       background-size: contain;
       background-repeat: no-repeat;
       @media (min-width: $mq-small) {
-        width: 601px;
-        height: 51%;
+        width: 600px;
+        height: 45%;
+        top: 10px;
       }
     }
     &::after {
@@ -2342,24 +2343,22 @@ footer {
       }
     }
     position: relative;
-    // &::before {
-    //   content: "";
-    //   background: url('../images/grey-triangles.png');
-    //   display: block;
-    //   position: absolute;
-    //   right: -20em;
-    //   top: 2em;
-    //   z-index: 1;
-    //   width: 383px;
-    //   height: 51%;
-    //   background-size: contain;
-    //   background-repeat: no-repeat;
-    //   overflow: hidden;
-    //   @media (min-width: $mq-small) {
-    //     width: 601px;
-    //     height: 100%;
-    //   }
-    // }
+    &::before {
+      content: "";
+      background: url(../images/grey-triangles_right.png);
+      display: block;
+      position: absolute;
+      width: 173px;
+      height: 100%;
+      top: 17em;
+      right: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      @media (min-width: $mq-small) {
+        width: 293px;
+        top: 25em;
+      }
+    }
   }
   #services {
     background: $c-white;
@@ -2479,33 +2478,45 @@ footer {
       .view-btn {
         @extend %minor-button2;
       }
-      &::after {
-        content: "";
-        background: url('../images/white-brushstroke.png');
-        display: block;
-        width: 100%;
-        padding-bottom: 20%;
-        background-size: cover;
-        margin-top: 5%;
-      }
   }
   #contact {
-    background: $c-white;
-    padding-bottom: 5%;
     .wrapper {
-      @include center(90%, $mq-medium);
+      background: $c-white;
+      padding-bottom: 5%;
       form {
+        @include center(90%, $mq-small);
         .submit-btn {
           @extend %major-button;
         }
       }
     }
+    &::before {
+      content: "";
+      background: url('../images/white-brushstroke.png');
+      display: block;
+      width: 100%;
+      padding-bottom: 20%;
+      background-size: cover;
+      margin-top: 5%;
+    }
+    position: relative;
+    &::after {
+      content: "";
+      background: url(../images/grey-triangles_left.png);
+      display: block;
+      position: absolute;
+      width: 173px;
+      height: 50%;
+      top: 2em;
+      left: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      @media (min-width: $mq-small) {
+        width: 293px;
+        top: -1em;
+      }
+    }
   }
-}
-
-.scroll-id:focus {
-  outline-color: transparent;
-  outline-style: none;
 }
 
 
@@ -2700,4 +2711,19 @@ footer {
       @extend %minor-button2;
     }
   }
+}
+
+/* ================================= 
+  Nav scrolling
+==================================== */
+.scroll-id:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.anchor{
+  display: block;
+  height: 52px; /*same height as header*/
+  margin-top: -52px; /*same height as header*/
+  visibility: hidden;
 }

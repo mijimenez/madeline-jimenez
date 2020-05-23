@@ -1444,7 +1444,7 @@ footer .footer-bar .wrapper .footer-bar-items li a {
   display: block;
   position: absolute;
   left: -12em;
-  top: 2em;
+  top: 22px;
   width: 383px;
   height: 51%;
   background-size: contain;
@@ -1453,8 +1453,9 @@ footer .footer-bar .wrapper .footer-bar-items li a {
 
 @media (min-width: 37.5em) {
   #homepage .hero::before {
-    width: 601px;
-    height: 51%;
+    width: 600px;
+    height: 45%;
+    top: 10px;
   }
 }
 
@@ -1521,6 +1522,26 @@ footer .footer-bar .wrapper .footer-bar-items li a {
   #homepage #about .wrapper .about-info {
     text-align: left;
     margin: 0 0 0 1em;
+  }
+}
+
+#homepage #about::before {
+  content: "";
+  background: url(../images/grey-triangles_right.png);
+  display: block;
+  position: absolute;
+  width: 173px;
+  height: 100%;
+  top: 17em;
+  right: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 37.5em) {
+  #homepage #about::before {
+    width: 293px;
+    top: 25em;
   }
 }
 
@@ -1684,7 +1705,23 @@ footer .footer-bar .wrapper .footer-bar-items li a {
   margin: 1em 0 0 1em;
 }
 
-#homepage #work::after {
+#homepage #contact {
+  position: relative;
+}
+
+#homepage #contact .wrapper {
+  background: #FFFFFF;
+  padding-bottom: 5%;
+}
+
+#homepage #contact .wrapper form {
+  width: 90%;
+  max-width: 37.5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#homepage #contact::before {
   content: "";
   background: url("../images/white-brushstroke.png");
   display: block;
@@ -1694,21 +1731,24 @@ footer .footer-bar .wrapper .footer-bar-items li a {
   margin-top: 5%;
 }
 
-#homepage #contact {
-  background: #FFFFFF;
-  padding-bottom: 5%;
+#homepage #contact::after {
+  content: "";
+  background: url(../images/grey-triangles_left.png);
+  display: block;
+  position: absolute;
+  width: 173px;
+  height: 50%;
+  top: 2em;
+  left: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-#homepage #contact .wrapper {
-  width: 90%;
-  max-width: 56.25em;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.scroll-id:focus {
-  outline-color: transparent;
-  outline-style: none;
+@media (min-width: 37.5em) {
+  #homepage #contact::after {
+    width: 293px;
+    top: -1em;
+  }
 }
 
 /* ================================= 
@@ -1971,5 +2011,22 @@ footer .footer-bar .wrapper .footer-bar-items li a {
   -ms-flex-pack: center;
   -moz-justify-content: center;
   justify-content: center;
+}
+
+/* ================================= 
+  Nav scrolling
+==================================== */
+.scroll-id:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.anchor {
+  display: block;
+  height: 52px;
+  /*same height as header*/
+  margin-top: -52px;
+  /*same height as header*/
+  visibility: hidden;
 }
 /*# sourceMappingURL=style.css.map */
